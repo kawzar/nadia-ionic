@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IDocument, ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  documents: IDocument[];
 
+  constructor(private api: ApiService) {}
+
+  ionViewDidEnter(){
+    this.documents = this.api.getDocuments();
+  }
 }
