@@ -13,6 +13,7 @@ export class HomePage {
   constructor(private api: ApiService) {}
 
   ionViewDidEnter(){
-    this.documents = this.api.getDocuments();
+    this.api.getDocuments().subscribe(res =>
+      this.documents = res)
   }
 }

@@ -15,7 +15,8 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    this.document = this.api.getDocumentById(id);
+    this.api.getDocumentById(id).subscribe(res =>
+      this.document = res)
   }
 
 }

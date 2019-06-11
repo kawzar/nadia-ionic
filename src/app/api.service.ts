@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 export interface IDocument{
   _id:string;
   title: string;
@@ -9,23 +10,13 @@ export interface IDocument{
 })
 export class ApiService {
 
-  documents: IDocument[] = [{
-    _id: "1",
-    title: "Title 1",
-    content: "test 1 content blabla"
-  },{
-    _id: "2",
-    title: "Title 2",
-    content: "content 2 bla bla bla"
-  }];
-
-  constructor() { }
-
-  getDocuments(){
-    return this.documents;
+  constructor(private http: HttpClient){}
+  
+  getDocuments() {
+    return this.http.get<IDocument[]>('http://localhost:3000/api/documents')
   }
 
-  getDocumentById(id){
-    return this.documents.find(x => x._id == id);
+  getDocumentById(id: string){
+    return this.http.get<IDocument>('http://localhost:3000/api/documents/' + id)
   }
 }
