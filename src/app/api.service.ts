@@ -10,13 +10,15 @@ export interface IDocument{
 })
 export class ApiService {
 
+  protected API: string = "https://upcn-salud-api.now.sh/api"
+
   constructor(private http: HttpClient){}
   
   getDocuments() {
-    return this.http.get<IDocument[]>('http://localhost:3000/api/documents')
+    return this.http.get<IDocument[]>(this.API + '/documents')
   }
 
   getDocumentById(id: string){
-    return this.http.get<IDocument>('http://localhost:3000/api/documents/' + id)
+    return this.http.get<IDocument>(this.API + '/documents/' + id)
   }
 }
