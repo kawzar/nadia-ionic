@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { User } from './user';
-import { AuthResponse } from 'src/auth-response';
+import { AuthResponse } from 'src/app/auth/auth-response';
 import { Observable } from 'rxjs/internal/Observable';
 import { BehaviorSubject } from 'rxjs';
+import { Storage } from  '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
   constructor(private http: HttpClient, private storage: Storage) { }
 
   login(user: User): Observable<AuthResponse> {
-    return this.http.post(`${this.AUTH_SERVER_ADDRESS}/login`, user).pipe(
+    return this.http.post(`${this.AUTH_SERVER_ADDRESS}/signin`, user).pipe(
       tap(async (res: AuthResponse) => {
 
         if (res.user) {
@@ -40,6 +41,6 @@ export class AuthService {
   }
 
   async getToken(){
-    await this.storage.getItem("ACCESS_TOKEN");
+    await this.storage.get("ACCESS_TOKEN");
   }
 }
