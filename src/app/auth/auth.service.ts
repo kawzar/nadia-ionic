@@ -40,7 +40,9 @@ export class AuthService {
     return this.authSubject.asObservable();
   }
 
-  async getToken(){
-    await this.storage.get("ACCESS_TOKEN");
+  getToken() {
+    return this.storage.get('ACCESS_TOKEN').then((val) => {
+       return val;
+    });
   }
 }
