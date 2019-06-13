@@ -28,7 +28,7 @@ export class ApiService {
     return this.http.get<IDocument>(this.API + '/documents/' + id)
   }
 
-  async updateDocumentById(id, document){
+  updateDocumentById(id, document){
     let httpOptions = {
       headers: new HttpHeaders({ 'Authorization': this.token})
     };
@@ -36,8 +36,6 @@ export class ApiService {
   }
 
   addDocument(document){
-    console.log(this.token);
-
     let httpOptions = {
       headers: new HttpHeaders({ 'Authorization': this.token})
     };

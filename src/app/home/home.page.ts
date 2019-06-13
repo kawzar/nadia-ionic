@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IDocument, ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomePage {
 
   documents: IDocument[];
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private router:Router) {}
 
   ionViewDidEnter(){
     this.api.getDocuments().subscribe(res =>
@@ -18,6 +19,10 @@ export class HomePage {
   }
 
   removeItem(){
-    
+
+  }
+
+  edit($id){
+    this.router.navigateByUrl('/menu/edit/' + $id);
   }
 }
