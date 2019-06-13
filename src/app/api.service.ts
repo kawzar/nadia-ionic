@@ -43,6 +43,14 @@ export class ApiService {
     return this.http.post(this.API +'/documents/', document, httpOptions);
   }
 
+  deleteDocumentById(id){
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Authorization': this.token})
+    };
+
+    return this.http.delete(this.API + '/documents/' + id, httpOptions);
+  }
+
   getToken() {
     this.storage.get('ACCESS_TOKEN').then((token) => {   
       this.token = token; 

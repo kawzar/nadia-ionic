@@ -17,10 +17,10 @@
             </div>
             <div padding>
               <ion-item>
-                <ion-input name="title" ngModel required></ion-input>
+                <ion-input name="title" [(ngModel)]="document.title" required></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input name="content" ngModel required></ion-input>
+                <ion-input name="content" [(ngModel)]="document.content" required></ion-input>
               </ion-item>
             </div>
             <div padding>

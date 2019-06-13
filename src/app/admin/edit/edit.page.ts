@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
+import { ApiService, IDocument } from 'src/app/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,13 +11,19 @@ export class EditPage implements OnInit {
 
   constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
+  document: IDocument;
+  id: string;
+
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.api.getDocumentById(this.id).subscribe(res => {
+      this.document = res;
+    });
   }
  
   edit(form){
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.api.updateDocumentById(id, form.value).subscribe((res)=>{
-      this.router.navigateByUrl('home');
+    this.api.updateDocumentById(this.id, form.value).subscribe((res)=>{
+      this.router.navigateByUrl('/menu/home');
     });
   }
 }
