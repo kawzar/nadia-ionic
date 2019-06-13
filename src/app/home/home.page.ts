@@ -16,4 +16,8 @@ export class HomePage {
     this.api.getDocuments().subscribe(res =>
       this.documents = res)
   }
+
+  removeItem(){
+    
+  }
 }
