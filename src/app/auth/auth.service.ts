@@ -36,8 +36,8 @@ export class AuthService {
     this.authSubject.next(false);
   }
 
-  isLoggedIn() {
-    return this.authSubject.asObservable();
+  isLoggedIn(): boolean {
+    return this.authSubject.value;
   }
 
   getToken() {

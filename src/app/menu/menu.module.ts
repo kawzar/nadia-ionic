@@ -13,11 +13,14 @@ const routes: Routes = [
     component: MenuPage,
     children: [
       { path: 'login', loadChildren: '../auth/login/login.module#LoginPageModule' },
-      { path: 'add', loadChildren: '../admin/add/add.module#AddPageModule' },
+      { path: 'add', loadChildren: '../admin/add/add.module#AddPageModule' },      
+      { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
+      { path: 'details/:id', loadChildren: '../details/details.module#DetailsPageModule' },
+      { path: 'logout', loadChildren: '../auth/logout/logout.module#LogoutPageModule' }
     ]
   }, {
     path: '',
-    redirectTo: 'menu/login'
+    redirectTo: 'menu/home'
   }
 ];
 
