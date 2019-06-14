@@ -16,7 +16,7 @@ export class HomePage {
 
   ionViewDidEnter(){
     this.api.getDocuments().subscribe(res =>
-      this.documents = res)
+      this.documents = res.sort((a, b) => a.title.localeCompare(b.title)));
   }
 
   delete($id){

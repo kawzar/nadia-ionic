@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
 export class MenuPage implements OnInit {
   pages=[
     {
-      title: "Home",
+      title: "Documentos",
       url: "/menu/home",
       needsLogin: false,
       alwaysDisplay: true
@@ -20,7 +20,7 @@ export class MenuPage implements OnInit {
       needsLogin: false,
       alwaysDisplay: false
     },{
-      title: "Add",
+      title: "Agregar",
       url: "/menu/add",
       needsLogin: true,
       alwaysDisplay: false
@@ -32,7 +32,7 @@ export class MenuPage implements OnInit {
     }
   ];
 
-  selectedPath = '';
+  selectedPath;
 
   constructor(private router: Router, private auth: AuthService) { 
     this.router.events.subscribe((event: RouterEvent) => {
