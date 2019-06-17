@@ -23,7 +23,7 @@
                 <quill-editor name="content" [(ngModel)]="document.content" [sanitize]="true" [styles]="{height: '200px'}" ></quill-editor> 
             </div>
             <div padding>
-              <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Editar</ion-button>
+              <ion-button size="large" type="submit" [disabled]="form.invalid || buttonDisabled" expand="block">Editar</ion-button>
             </div>
           </ion-col>
         </ion-row>

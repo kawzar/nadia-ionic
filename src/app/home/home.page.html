@@ -11,6 +11,11 @@
 
 <ion-content>
 <ion-list>
+  <ion-item>
+      <ion-input [(ngModel)]="filter.searchStr" placeholder="Busqueda en el contenido"></ion-input>
+      <ion-button (click)="onSearchClicked($event)" [disabled]="searchButtonIsDisabled">Buscar</ion-button>      
+      <ion-button color="secondary" [disabled]="!filter.searchStr" (click)="onClearSearchClicked($event)">Limpiar busqueda</ion-button>
+  </ion-item>
   <ion-item-sliding *ngFor="let document of documents">
     <ion-item>
       <ion-label><a [routerLink]="['/menu/details', document._id]">{{document.title}}</a></ion-label>

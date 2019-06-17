@@ -43,6 +43,10 @@ export class ApiService {
     return this.http.post(this.API +'/documents/', document, httpOptions);
   }
 
+  getDocumentByFilter(filter){
+    return this.http.post<IDocument[]>(this.API +'/documents/filter/', filter);
+  }
+
   deleteDocumentById(id){
     let httpOptions = {
       headers: new HttpHeaders({ 'Authorization': this.token})
