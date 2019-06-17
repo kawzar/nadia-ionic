@@ -16,7 +16,7 @@ export class AddPage implements OnInit {
  
   add(form){
     this.api.addDocument(form.value).subscribe((res)=>{
-      this.router.navigateByUrl('home');
+      this.router.navigateByUrl('/menu/home');
     });
   }
 }
