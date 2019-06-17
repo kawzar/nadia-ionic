@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
+import { ApiService, IDocument } from 'src/app/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add.page.scss'],
 })
 export class AddPage implements OnInit {
+  document: IDocument = {content: '', title :'', _id: null};
 
   constructor(private api: ApiService, private router: Router) { }
 
@@ -15,7 +16,7 @@ export class AddPage implements OnInit {
   }
  
   add(form){
-    this.api.addDocument(form.value).subscribe((res)=>{
+    this.api.addDocument(this.document).subscribe((res)=>{
       this.router.navigateByUrl('/menu/home');
     });
   }

@@ -4,10 +4,10 @@
           <ion-menu-button></ion-menu-button>
           <ion-back-button defaultHref="home"></ion-back-button>
       </ion-buttons>
-    <ion-title>{{document.title}}</ion-title>
+    <ion-title>{{document?.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<div>{{document.content}}</div>
+<div [innerHTML]="document?.content"></div>
 </ion-content>

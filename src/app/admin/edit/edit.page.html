@@ -20,8 +20,7 @@
               <ion-item>
                 <ion-input name="title" placeholder="Título" [(ngModel)]="document.title" required></ion-input>
               </ion-item>
-              <ion-item>
-                <ion-textarea rows="6" cols="20" placeholder="Ingrese el contenido del documento" name="content" [(ngModel)]="document.content" required></ion-textarea>              </ion-item>
+                <quill-editor name="content" [(ngModel)]="document.content" [sanitize]="true" [styles]="{height: '200px'}" ></quill-editor> 
             </div>
             <div padding>
               <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Editar</ion-button>

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   imports: [
@@ -16,7 +17,12 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    QuillModule.forRoot({
+      modules: {
+        syntax: true
+      }
+    })
   ],
   declarations: [HomePage]
 })

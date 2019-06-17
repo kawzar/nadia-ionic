@@ -8,21 +8,26 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit.page.scss'],
 })
 export class EditPage implements OnInit {
+  ngOnInit(): void {
+  }
 
-  constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute) { }
-
-  document: IDocument;
-  id: string;
-
-  ngOnInit() {
+  constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.api.getDocumentById(this.id).subscribe(res => {
       this.document = res;
     });
+   }
+
+  document: IDocument;
+  id: string;
+
+  ionViewDidEnter() {
+    
   }
  
   edit(form){
-    this.api.updateDocumentById(this.id, form.value).subscribe((res)=>{
+    console.log(this.document);
+    this.api.updateDocumentById(this.id, this.document).subscribe((res)=>{
       this.router.navigateByUrl('/menu/home');
     });
   }

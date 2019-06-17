@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AddPage } from './add.page';
+import { QuillModule } from 'ngx-quill';
 
 const routes: Routes = [
   {
@@ -19,7 +20,12 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    QuillModule.forRoot({
+      modules: {
+        syntax: true
+      }
+    })
   ],
   declarations: [AddPage]
 })

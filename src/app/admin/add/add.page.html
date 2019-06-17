@@ -18,10 +18,10 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-input name="title" placeholder="Titulo" ngModel required></ion-input>
+              <ion-input name="title" [(ngModel)]="document.title" placeholder="Titulo" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-textarea rows="6" cols="20" placeholder="Ingrese el contenido del documento" name="content" ngModel required></ion-textarea>
+              <quill-editor name="content" [(ngModel)]="document.content" [sanitize]="true"></quill-editor>
             </ion-item>
           </div>
           <div padding>
