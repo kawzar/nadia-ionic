@@ -20,8 +20,8 @@
             <ion-item>
               <ion-input name="title" [(ngModel)]="document.title" placeholder="Titulo" ngModel required></ion-input>
             </ion-item>
-            <ion-item>
-              <quill-editor name="content" [(ngModel)]="document.content" [sanitize]="true"></quill-editor>
+            <ion-item padding>
+              <quill-editor name="content" [(ngModel)]="document.content" [sanitize]="true" placeholder="Ingrese el contenido" [styles]="{height: '200px'}"></quill-editor>
             </ion-item>
           </div>
           <div padding>

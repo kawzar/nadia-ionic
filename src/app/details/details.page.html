@@ -2,12 +2,19 @@
   <ion-toolbar color="primary">
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
-          <ion-back-button defaultHref="home"></ion-back-button>
+          <ion-back-button defaultHref="menu/home"></ion-back-button>
       </ion-buttons>
     <ion-title>{{document?.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<div [innerHTML]="document?.content"></div>
+<ion-list>
+  <ion-item>
+      <ion-input type="text" class="form-control col-sm-10" [(ngModel)]="searchText" placeholder="Buscar en el contenido..."></ion-input>
+  </ion-item>
+  <ion-item padding>
+    <div [innerHTML]="document?.content | highlight : searchText"></div>
+  </ion-item>
+</ion-list>
 </ion-content>

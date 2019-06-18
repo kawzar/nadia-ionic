@@ -18,7 +18,7 @@
   </ion-item>
   <ion-item-sliding *ngFor="let document of documents">
     <ion-item>
-      <ion-label><a [routerLink]="['/menu/details', document._id]">{{document.title}}</a></ion-label>
+      <ion-label><a [routerLink]="['/menu/details', document._id, filter.searchStr]">{{document.title}}</a></ion-label>
     </ion-item>
 
     <ion-item-options *ngIf="isLoggedIn()" side="end">

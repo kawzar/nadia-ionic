@@ -37,7 +37,7 @@ export class HomePage {
   }
 
   edit($id){
-    this.router.navigateByUrl('/menu/edit/' + $id);
+    this.router.navigateByUrl('/menu/edit/' + $id + '/' + this.filter.searchStr);
   }
 
   isLoggedIn(){
@@ -64,7 +64,8 @@ export class HomePage {
 
   getDocuments(){
     this.api.getDocuments().subscribe(res =>
-      this.documents = res.sort((a, b) => a.title.localeCompare(b.title)));
+    this.documents = res.sort((a, b) => a.title.localeCompare(b.title)));      
+    this.hideLoader();
   }
 
   showLoader() {
@@ -74,7 +75,6 @@ export class HomePage {
       res.present();
  
       res.onDidDismiss().then((dis) => {
-        console.log('Loading dismissed!');
       });
     });
     this.hideLoader();
@@ -83,6 +83,6 @@ export class HomePage {
   hideLoader() {
     setTimeout(() => {
       this.loadingController.dismiss();
-    }, 4000);
+    }, 2000);
   }
 }

@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { DetailsPage } from './details.page';
+import { HighlightPipe } from '../highlight.pipe';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DetailsPage]
+  exports: [HighlightPipe],
+  declarations: [DetailsPage, HighlightPipe]
 })
 export class DetailsPageModule {}

@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: 'add', loadChildren: '../admin/add/add.module#AddPageModule' },      
       { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
       { path: 'details/:id', loadChildren: '../details/details.module#DetailsPageModule' },
+      { path: 'details/:id/:filter', loadChildren: '../details/details.module#DetailsPageModule' },
       { path: 'logout', loadChildren: '../auth/logout/logout.module#LogoutPageModule' },
       { path: 'edit/:id', loadChildren: '../admin/edit/edit.module#EditPageModule' }
     ]

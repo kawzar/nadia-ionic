@@ -50,6 +50,6 @@ export class EditPage implements OnInit {
   hideLoader() {
     setTimeout(() => {
       this.loadingController.dismiss();
-    }, 4000);
+    }, 2000);
   }
 }
