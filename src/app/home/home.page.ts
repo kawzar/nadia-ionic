@@ -37,7 +37,7 @@ export class HomePage {
   }
 
   edit($id){
-    this.router.navigateByUrl('/menu/edit/' + $id + '/' + this.filter.searchStr);
+    this.router.navigateByUrl('/menu/edit/' + $id);
   }
 
   isLoggedIn(){
