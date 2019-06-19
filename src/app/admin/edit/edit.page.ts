@@ -15,7 +15,7 @@ export class EditPage implements OnInit {
 
   buttonDisabled = false;
   loaderToShow: any;
-  document: IDocument;
+  document: IDocument = {title: '', content: '', _id: ''};
   id: string;
 
   constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute,  public loadingController: LoadingController) {
